@@ -63,16 +63,17 @@ function render() {
     //add and wait for action for read/unread button
     let readButton = document.createElement("button");
     readButton.id = `change-button-${i}`;
-    readButton.className = "btn btn-success";
     let readStatus;
     if (myLibrary[i].read === true) {
       readStatus = "Yes";
+      readButton.className = "btn btn-success";
     } else {
       readStatus = "No";
+      readButton.className = "btn btn-danger";
     }
     readButton.innerHTML = readStatus;
     readButton.addEventListener("click", function () {
-      myLibrary[i].checked = !myLibrary[i].checked;
+      myLibrary[i].read = !myLibrary[i].read;
       render();
     });
     cell4.appendChild(readButton);
